@@ -1,5 +1,5 @@
 // src/pages/Profile.tsx
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import type {
   ProfileData,
@@ -7,7 +7,7 @@ import type {
   CommentItem,
 } from "../services/profile.ts";
 import { fetchProfileData } from "../services/profile.ts";
-import "./Profile.css";
+import "./profile.css";
 
 export default function Profile() {
   const navigate = useNavigate();

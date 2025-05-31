@@ -4,7 +4,7 @@ import DaySelection from '../pages/DaySelection';
 import EmployeeSelection from '../pages/EmployeeSelection';
 import Bingo3x3 from '../pages/Bingo3x3';
 import End from '../pages/End';
-import Profile from '../pages/Profile';
+import Profile from '../pages/profile';
 
 
 

@@ -1,5 +1,4 @@
 // src/services/employees.ts
-import axios from 'axios';
 import type { Employee } from '../types/Employee';
 
 const mockEmployees: Employee[] = [
