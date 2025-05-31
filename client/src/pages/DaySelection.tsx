@@ -1,7 +1,7 @@
 import './DaySelection.css';
 import { useNavigate } from "react-router-dom";
 import { useState } from 'react';
-import Logo from '../image/upscalemedia-transformed.png'
+import Logo from '../image/Feed_Bingo-removebg-preview.svg';
 
 function DaySelection() {
   const navigate = useNavigate();
@@ -15,25 +15,23 @@ function DaySelection() {
 
         <div className='escrever'>
           <div className='email'>
-            <label htmlFor="login" className="texto-email">
+            <label htmlFor="login" className="titulo-email">
               E-mail
             </label>
             <input type="text" />
           </div>
 
           <div className="senha">
-            <label htmlFor="password" className="texto-senha">
+            <label htmlFor="password" className="titulo-senha">
               Senha
             </label>
             <input type="text" />
           </div>
         </div>
+        <button onClick={() => navigate("/")} className="nome-do-botao" type="button">
+          Entrar
+        </button>
 
-        <div>
-          <button onClick={() => navigate("/")} className="botão" type="button">
-            Entrar
-          </button>
-        </div>
 
       </div>
     </section>
