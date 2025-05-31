@@ -18,14 +18,14 @@ function App() {
   const [points, setPoints] = useState<number>(0)
   const [evaluation, setEvaluation] = useState<string>("")
   const [squares, setSquares] = useState<BingoSquare[]>([
-    { id: "1", topic: "Proatividade", rating: null },
-    { id: "2", topic: "Competência", rating: null },
-    { id: "3", topic: "Comunicação", rating: null },
-    { id: "4", topic: "Trabalho em Equipe", rating: null },
-    { id: "5", topic: "Organização", rating: null },
+    { id: "1", topic: "Comunicação", rating: null },
+    { id: "2", topic: "Proatividade", rating: null },
+    { id: "3", topic: "Relacionamento", rating: null },
+    { id: "4", topic: "Técnica", rating: null },
+    { id: "5", topic: "Adaptabilidade", rating: null },
     { id: "6", topic: "Criatividade", rating: null },
-    { id: "7", topic: "Pontualidade", rating: null },
-    { id: "8", topic: "Resolução de Problemas", rating: null },
+    { id: "7", topic: "Resolução de Problemas", rating: null },
+    { id: "8", topic: "Valores da Empresa", rating: null },
   ])
 
   const [activeDrag, setActiveDrag] = useState<number | null>(null)
@@ -161,7 +161,7 @@ function App() {
       </div>
 
       <div className="rating-section">
-        <div className="rating-title">Notas de Avaliação</div>
+        <div className="rating-title">NOTAS DE AVALIAÇÃO</div>
         <div className="rating-circles">
           {ratings.map((rating) => (
             <div
@@ -184,7 +184,7 @@ function App() {
 
       <div className="evaluation-section">
         <div className="evaluation-input">
-          <label htmlFor="evaluation">💬 Avaliação:</label>
+          <label htmlFor="evaluation">💬 Feedback livre:</label>
           <input
             type="text"
             id="evaluation"
@@ -195,7 +195,7 @@ function App() {
         </div>
         <button className="submit-button" onClick={handleSubmit}>
           <span className="button-icon">📤</span>
-          Enviar Avaliação
+          Enviar
         </button>
       </div>
 
