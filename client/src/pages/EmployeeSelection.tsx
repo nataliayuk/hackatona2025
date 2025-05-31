@@ -32,6 +32,7 @@ export default function EmployeeSelection() {
 
   return (
     <div style={{ padding: '16px' }}>
+      <h1 >FeedBack do dia — {new Date().toLocaleDateString('pt-BR')}</h1>
       <h2>Selecione o colaborador (dia: {dayId})</h2>
       <input
         type="text"

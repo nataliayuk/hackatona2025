@@ -217,7 +217,6 @@ h1 {
   font-weight: 700;
   color: white;
   cursor: grab;
-  box-shadow: var(--shadow-medium);
   transition: var(--transition);
   font-size: clamp(1rem, 3.5vw, 1.4rem);
   user-select: none;
