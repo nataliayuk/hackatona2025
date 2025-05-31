@@ -133,10 +133,8 @@ function App() {
       ←
     </button>
     <h1>
-      Bingo do Lucas
       <span className="points">
-        <span className="points-icon">⭐</span>
-        {points} pontos
+      Cartela do Thiago
       </span>
     </h1>
   </div>
@@ -190,10 +188,10 @@ function App() {
             id="evaluation"
             value={evaluation}
             onChange={(e) => setEvaluation(e.target.value)}
-            placeholder="Escreva aqui seus comentários..."
+            placeholder="Escreva aqui, sua avaliação é anônima"
           />
         </div>
-        <button className="submit-button" onClick={handleSubmit}>
+        <button className="submit-button" onClick={() => navigate('/end')}>
           <span className="button-icon">📤</span>
           Enviar
         </button>

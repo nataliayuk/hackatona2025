@@ -31,9 +31,21 @@ export default function EmployeeSelection() {
   }, [filter, allEmployees]);
 
   return (
-    <div style={{ padding: '16px' }}>
-      <h1 >FeedBack do dia — {new Date().toLocaleDateString('pt-BR')}</h1>
-      <h2>Selecione o colaborador (dia: {dayId})</h2>
+    <div style={{
+      padding: '24px',
+      textAlign: 'center',
+    }}>
+      <p style={{ paddingTop: '3rem', fontSize: '3rem'}}>🌟</p>
+      <h1 style= {{ fontSize: '36px' }}>Feedback do dia</h1>
+      <p> 
+      {new Date().toLocaleDateString('pt-BR', {
+      weekday: 'long',   // dia da semana por extenso
+      day: 'numeric',    // dia do mês (número)
+      month: 'long',     // mês por extenso
+      year: 'numeric'    // ano completo
+      })}
+    </p>  
+    <h2 style={{ paddingTop: '32px' }}>Selecione o colaborador:</h2>
       <input
         type="text"
         placeholder="Digite o nome..."
@@ -47,7 +59,7 @@ export default function EmployeeSelection() {
         }}
       />
 
-      <ul style={{ listStyle: 'none', padding: 0 }}>
+      <ul style={{ listStyle: 'none', padding: 0, }}>
         {filteredList.map((emp) => (
           <li
             key={emp.id}

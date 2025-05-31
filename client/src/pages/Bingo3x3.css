@@ -66,10 +66,11 @@ h1 {
   gap: 0.8rem;
   flex-wrap: wrap;
   margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
 }
 
 .points {
-  font-size: clamp(0.8rem, 2.5vw, 1rem);
+  font-size: clamp(1.2rem, 2.5vw, 1rem);
   background: linear-gradient(135deg, var(--secondary-color), #48bb78);
   color: white;
   padding: 0.4rem 0.8rem;
@@ -190,6 +191,7 @@ h1 {
 }
 
 .rating-title {
+  padding-top: 16px;
   font-size: clamp(0.9rem, 3vw, 1.1rem);
   font-weight: 600;
   margin-bottom: 1rem;
@@ -283,7 +285,7 @@ h1 {
 }
 
 .rating-hint {
-  font-size: clamp(0.7rem, 2vw, 0.8rem);
+    font-size: clamp(0.7rem, 2vw, 0.8rem);
   color: #718096;
   font-style: italic;
 }
@@ -332,11 +334,12 @@ h1 {
   align-items: center;
   gap: 0.5rem;
   font-size: clamp(0.9rem, 2.5vw, 1rem);
+  padding-top: 0.5rem;
 }
 
 .evaluation-input input {
   width: 100%;
-  padding: clamp(0.8rem, 2.5vw, 1rem);
+  padding: clamp(1rem, 2.5vw, 1rem);
   border: 2px solid var(--border-color);
   border-radius: var(--border-radius);
   font-size: clamp(0.9rem, 2.5vw, 1rem);
@@ -365,6 +368,7 @@ h1 {
   align-items: center;
   gap: 0.5rem;
   white-space: nowrap;
+  
 }
 
 .submit-button:hover {
@@ -377,6 +381,7 @@ h1 {
 }
 
 .button-icon {
+  
   font-size: 1.1em;
 }
 .header-content {
