@@ -1,8 +1,17 @@
 // src/pages/End.tsx
 import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+
 
 export default function End() {
   const navigate = useNavigate();
+
+  const [points, setPoints] = useState<number>(0);
+
+  useEffect(() => {
+    const storedPoints = Number(localStorage.getItem("points")) || 0;
+    setPoints(storedPoints);
+  }, []);
 
   return (
     <div
@@ -21,8 +30,8 @@ export default function End() {
       <h1 style={{ fontSize: '2.5rem', color: 'var(--primary-color, #e53e3e)', marginBottom: '16px' }}>
         <span className="points">
         <span className="points-icon">⭐</span>
-        23 pontos
-      </span>
+         {points} pontos
+         </span>
       Obrigado pelo feedback! 🥳
       </h1>
       <p style={{ fontSize: '1rem', marginBottom: '32px' }}>

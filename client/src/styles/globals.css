@@ -11,13 +11,11 @@ body,
   background-color: #fafafa;
 }
 
-/* Geral para botões, inputs, etc. */
 button,
 input {
   font-family: inherit;
 }
 
-/* Pequenas media queries caso queira refinar para telas maiores */
 @media (min-width: 600px) {
   .day-circle {
     width: 100px;

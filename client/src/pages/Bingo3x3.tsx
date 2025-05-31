@@ -1,6 +1,3 @@
-
-"use client"
-
 import type React from "react"
 import { useState } from "react"
 import "./Bingo3x3.css"
@@ -15,7 +12,6 @@ type BingoSquare = {
 
 function App() {
   const navigate = useNavigate()
-  const [points, setPoints] = useState<number>(0)
   const [evaluation, setEvaluation] = useState<string>("")
   const [squares, setSquares] = useState<BingoSquare[]>([
     { id: "1", topic: "Comunicação", rating: null },
@@ -34,12 +30,10 @@ function App() {
   
   const ratings = [1, 2, 3, 4, 5]
 
-  // Handle drag start for rating circles (Desktop)
   const handleDragStart = (e: React.DragEvent, rating: number) => {
     setActiveDrag(rating)
     setIsDragging(true)
 
-    // Hide default drag image
     const emptyImg = new Image()
     emptyImg.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs="
     e.dataTransfer.setDragImage(emptyImg, 0, 0)
@@ -57,7 +51,6 @@ function App() {
     setDragPosition(null)
   }
 
-  // Handle dropping a rating on a square (Desktop)
   const handleDrop = (e: React.DragEvent, squareId: string) => {
     e.preventDefault()
     if (activeDrag !== null) {
@@ -68,7 +61,6 @@ function App() {
     setDragPosition(null)
   }
 
-  // Handle touch start (Mobile)
   const handleTouchStart = (e: React.TouchEvent, rating: number) => {
     e.preventDefault()
     setActiveDrag(rating)
@@ -78,7 +70,6 @@ function App() {
     setDragPosition({ x: touch.clientX, y: touch.clientY })
   }
 
-  // Handle touch move (Mobile)
   const handleTouchMove = (e: React.TouchEvent) => {
     e.preventDefault()
     if (isDragging && activeDrag !== null) {
@@ -87,7 +78,6 @@ function App() {
     }
   }
 
-  // Handle touch end (Mobile)
   const handleTouchEnd = (e: React.TouchEvent) => {
     e.preventDefault()
     if (activeDrag !== null) {
@@ -106,15 +96,18 @@ function App() {
     setIsDragging(false)
     setDragPosition(null)
   }
+   const handleSubmit = () => {
+   const storedPoints = Number(localStorage.getItem("points")) || 0;
+  const newPoints = storedPoints + 1;
 
-  // Handle submit button
-  const handleSubmit = () => {
-    setPoints(points + 1)
-    console.log("Avaliação enviada:", evaluation)
-    console.log("Notas:", squares)
-  }
+  localStorage.setItem("points", newPoints.toString());
 
-  // Handle square click to remove rating
+  console.log("Avaliação enviada:", evaluation);
+  console.log("Notas:", squares);
+
+  navigate('/end'); 
+   }
+
   const handleSquareClick = (squareId: string) => {
     if (!isDragging) {
       setSquares(squares.map((square) => (square.id === squareId ? { ...square, rating: null } : square)))
@@ -132,14 +125,11 @@ function App() {
     >
       ←
     </button>
-    <h1>
-      <span className="points">
+    <h1 style= {{ fontSize: '1.8rem' }}>
       Cartela do Thiago
-      </span>
     </h1>
   </div>
 </div>
-
 
       <div className="bingo-board">
         {squares.map((square) => (
@@ -191,13 +181,12 @@ function App() {
             placeholder="Escreva aqui, sua avaliação é anônima"
           />
         </div>
-        <button className="submit-button" onClick={() => navigate('/end')}>
-          <span className="button-icon">📤</span>
-          Enviar
+        <button className="submit-button" onClick={handleSubmit}>
+        <span className="button-icon">📤</span>
+             Enviar
         </button>
       </div>
 
-      {/* Floating drag element */}
       {isDragging && dragPosition && activeDrag && (
         <div
           className={`floating-drag-element rating-${activeDrag}`}
@@ -212,5 +201,4 @@ function App() {
     </div>
   )
 }
-
 export default App

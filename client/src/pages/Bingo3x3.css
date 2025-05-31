@@ -1,6 +1,6 @@
 :root {
-  --primary-color: #e53e3e;
-  --secondary-color: #38a169;
+  --primary-color: #00B288;
+  --secondary-color: #242D3D;
   --background-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   --card-background: rgba(255, 255, 255, 0.95);
   --text-color: #2d3748;
@@ -290,7 +290,6 @@ h1 {
   font-style: italic;
 }
 
-/* Rating colors with gradients */
 .rating-1 {
   background: linear-gradient(135deg, var(--rating-1), #fc8181);
 }
@@ -354,7 +353,7 @@ h1 {
 }
 
 .submit-button {
-  background: linear-gradient(135deg, var(--primary-color), #fc8181);
+  background: linear-gradient(135deg, var(--primary-color), #242D3D);
   border: none;
   padding: clamp(0.8rem, 2.5vw, 1rem) clamp(1.5rem, 4vw, 2rem);
   border-radius: var(--border-radius);
@@ -417,8 +416,6 @@ h1 {
   }
 }
 
-
-/* Mobile specific adjustments */
 @media (max-width: 480px) {
   body {
     padding: 0.25rem;
@@ -449,7 +446,6 @@ h1 {
   }
 }
 
-/* Extra small devices */
 @media (max-width: 360px) {
   .app-container {
     padding: 0.8rem;
@@ -464,7 +460,6 @@ h1 {
   }
 }
 
-/* Very small screens */
 @media (max-width: 320px) {
   .rating-circles {
     gap: 0.2rem;
@@ -476,7 +471,6 @@ h1 {
   }
 }
 
-/* Touch device optimizations */
 @media (hover: none) and (pointer: coarse) {
   .rating-circle {
     min-width: clamp(2.8rem, 9vw, 3.8rem);
@@ -487,7 +481,6 @@ h1 {
   }
 }
 
-/* Landscape orientation for mobile */
 @media (max-width: 768px) and (orientation: landscape) {
   .app-container {
     max-width: 95vw;
@@ -504,7 +497,6 @@ h1 {
   }
 }
 
-/* Prevent horizontal scroll */
 .rating-circles::-webkit-scrollbar {
   display: none;
 }

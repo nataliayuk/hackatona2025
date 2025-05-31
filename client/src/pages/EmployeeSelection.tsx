@@ -39,10 +39,10 @@ export default function EmployeeSelection() {
       <h1 style= {{ fontSize: '36px' }}>Feedback do dia</h1>
       <p> 
       {new Date().toLocaleDateString('pt-BR', {
-      weekday: 'long',   // dia da semana por extenso
-      day: 'numeric',    // dia do mês (número)
-      month: 'long',     // mês por extenso
-      year: 'numeric'    // ano completo
+      weekday: 'long',  
+      day: 'numeric',    
+      month: 'long',     
+      year: 'numeric'    
       })}
     </p>  
     <h2 style={{ paddingTop: '32px' }}>Selecione o colaborador:</h2>
