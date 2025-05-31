@@ -28,10 +28,11 @@ function DaySelection() {
             <input type="text" />
           </div>
         </div>
-        <button onClick={() => navigate("/")} className="nome-do-botao" type="button">
-          Entrar
-        </button>
-
+        <div className='botao'>
+          <button onClick={() => navigate("/")} className="nome-do-botao" type="button">
+            Entrar
+          </button>
+        </div>
 
       </div>
     </section>
