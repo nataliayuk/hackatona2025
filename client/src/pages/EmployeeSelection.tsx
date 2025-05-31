@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { fetchEmployees } from '../services/employees';
 import type { Employee } from '../types/Employee';
+import UserLogo from "../assets/user1.svg"; 
+
 type LocationState = {
   dayId: string;
 };
@@ -31,8 +33,30 @@ export default function EmployeeSelection() {
   }, [filter, allEmployees]);
 
   return (
-    <div style={{ padding: '16px' }}>
-      <h2>Selecione o colaborador (dia: {dayId})</h2>
+    <div style={{
+      padding: '24px',
+      textAlign: 'center',
+    }}>
+      
+        <button
+      className="usuario"
+      onClick={() => navigate('/Profile', { state: { dayId: 'example-id' } })}
+      
+    >
+      <img src={UserLogo} alt="User Logo" style={{ width: '40px', height: '40px' }} />
+    </button>
+      
+      <p style={{ paddingTop: '3rem', fontSize: '3rem'}}>🌟</p>
+      <h1 style= {{ fontSize: '36px' }}>Feedback do dia</h1>
+      <p> 
+      {new Date().toLocaleDateString('pt-BR', {
+      weekday: 'long',  
+      day: 'numeric',    
+      month: 'long',     
+      year: 'numeric'    
+      })}
+    </p>  
+    <h2 style={{ paddingTop: '32px' }}>Selecione o colaborador:</h2>
       <input
         type="text"
         placeholder="Digite o nome..."
@@ -46,7 +70,7 @@ export default function EmployeeSelection() {
         }}
       />
 
-      <ul style={{ listStyle: 'none', padding: 0 }}>
+      <ul style={{ listStyle: 'none', padding: 0, }}>
         {filteredList.map((emp) => (
           <li
             key={emp.id}

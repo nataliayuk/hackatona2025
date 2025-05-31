@@ -9,15 +9,14 @@ body,
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     'Helvetica Neue', Arial, sans-serif;
   background-color: #fafafa;
+  color: (#242D3D);
 }
 
-/* Geral para botões, inputs, etc. */
 button,
 input {
   font-family: inherit;
 }
 
-/* Pequenas media queries caso queira refinar para telas maiores */
 @media (min-width: 600px) {
   .day-circle {
     width: 100px;
