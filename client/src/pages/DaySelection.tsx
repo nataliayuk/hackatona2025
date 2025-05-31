@@ -18,6 +18,7 @@ export default function DaySelection() {
 
   return (
     <div className="day-container">
+      
       <h1>Feedback do dia:</h1>
       <div className="day-path">
         {days.map((d, idx) => (

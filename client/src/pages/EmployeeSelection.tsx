@@ -35,6 +35,14 @@ export default function EmployeeSelection() {
       padding: '24px',
       textAlign: 'center',
     }}>
+        <button
+      className="usuario"
+      onClick={() => navigate('/Profile', { state: { dayId: 'example-id' } })}
+      
+    >
+      
+    </button>
+      
       <p style={{ paddingTop: '3rem', fontSize: '3rem'}}>🌟</p>
       <h1 style= {{ fontSize: '36px' }}>Feedback do dia</h1>
       <p> 

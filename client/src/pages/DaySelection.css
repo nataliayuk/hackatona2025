@@ -37,3 +37,16 @@
   height: 4px;
   background-color: #9e9e9e;
 }
+.back-button {
+  background: none;
+  border: none;
+  font-size: clamp(1.2rem, 4vw, 1.8rem);
+  color: var(--primary-color);
+  cursor: pointer;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0.2rem 0.5rem;
+  line-height: 1;
+}
