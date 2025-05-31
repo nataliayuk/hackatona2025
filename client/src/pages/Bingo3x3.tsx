@@ -17,21 +17,20 @@ type Person = {
 function App() {
   const [person, setPerson] = useState<Person>({ Avaliação: "" })
   const [squares, setSquares] = useState<BingoSquare[]>([
-    { id: "1", topic: "Proatividade", rating: null },
-    { id: "2", topic: "Competência", rating: null },
-    { id: "3", topic: "Comunicação", rating: null },
-    { id: "4", topic: "Trabalho em Equipe", rating: null },
-    { id: "5", topic: "Organização", rating: null },
+    { id: "1", topic: "Comunicação", rating: null },
+    { id: "2", topic: "Proatividade", rating: null },
+    { id: "3", topic: "Relacionamento", rating: null },
+    { id: "4", topic: "Técnica", rating: null },
+    { id: "5", topic: "Adaptabilidade ", rating: null },
     { id: "6", topic: "Criatividade", rating: null },
-    { id: "7", topic: "Pontualidade", rating: null },
-    { id: "8", topic: "Resolução de Problemas", rating: null },
+    { id: "7", topic: "Resolução de Problemas", rating: null },
+    { id: "8", topic: "Valores da Empresa", rating: null },
   ])
 
   const [activeDrag, setActiveDrag] = useState<number | null>(null)
   const ratings = [1, 2, 3, 4, 5]
 
   // ✅ Verifica se todos os quadrados têm nota
-  const allRated = squares.every((square) => square.rating !== null)
 
   const handleDragStart = (rating: number) => {
     setActiveDrag(rating)
@@ -93,7 +92,7 @@ function App() {
             type="text"
             id="personName"
             onChange={handleNameChange}
-            placeholder="Escreva aqui"
+            placeholder="Escreva aqui..."
           />
         </div>
       
