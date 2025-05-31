@@ -1,0 +1,187 @@
+:root {
+  --primary-color: #ff6b6b;
+  --secondary-color: #4ecdc4;
+  --background-color: #f7f7f7;
+  --text-color: #333333;
+  --border-color: #dddddd;
+  --rating-1: #ff6b6b;
+  --rating-2: #ffa06b;
+  --rating-3: #ffd56b;
+  --rating-4: #c2e06b;
+  --rating-5: #6be07c;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  padding: 1rem;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.header {
+  width: 100%;
+  text-align: center;
+}
+
+h1 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+}
+
+.name-input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.name-input input {
+  padding: 0.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.bingo-board {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 colunas */
+  grid-template-rows: repeat(4, 1fr);    /* 4 linhas */
+  gap: 1rem; /* espaço um pouco maior entre os quadrados */
+  width: 100%;
+  aspect-ratio: auto; /* Remove o formato quadrado fixo */
+}
+
+
+.bingo-square {
+  background-color: white;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  position: relative;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+  min-height: 120px; /* altura mínima aumentada */
+}
+
+.bingo-square:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.topic {
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.rating-display {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1rem;
+  color: white;
+}
+
+.rating-circles {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  justify-content: center;
+}
+
+.rating-circle {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: white;
+  cursor: grab;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+}
+
+.rating-circle:active {
+  cursor: grabbing;
+  transform: scale(1.1);
+}
+
+/* Rating colors */
+.rating-1 {
+  background-color: var(--rating-1);
+}
+
+.rating-2 {
+  background-color: var(--rating-2);
+}
+
+.rating-3 {
+  background-color: var(--rating-3);
+}
+
+.rating-4 {
+  background-color: var(--rating-4);
+}
+
+.rating-5 {
+  background-color: var(--rating-5);
+}
+
+/* Responsive adjustments for very small screens */
+@media (max-width: 350px) {
+  .bingo-square {
+    padding: 0.25rem;
+  }
+
+  .topic {
+    font-size: 0.8rem;
+  }
+
+  .rating-display {
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: 0.8rem;
+  }
+
+  .rating-circle {
+    width: 2rem;
+    height: 2rem;
+  }
+  .finish-section{
+    display: flex;
+    gap: 0.5rem;
+    margin-left: 0.5rem;  
+  }
+}
