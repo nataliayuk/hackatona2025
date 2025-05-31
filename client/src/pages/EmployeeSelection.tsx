@@ -32,7 +32,7 @@ export default function EmployeeSelection() {
 
   return (
     <div style={{ padding: '16px' }}>
-      <h2>Selecione o Colaborador (Dia: {dayId})</h2>
+      <h2>Selecione o colaborador (dia: {dayId})</h2>
       <input
         type="text"
         placeholder="Digite o nome..."

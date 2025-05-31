@@ -1,112 +1,109 @@
-// src/pages/Bingo3x3.tsx
-/*import { useLocation, useNavigate } from 'react-router-dom';
-import DropSlot from '../components/DropSlot';
-import DragNumber from '../components/DragNumber';
-import type { BingoItem } from '../types/BingoItem';
+"use client"
 
-type LocationState = {
-  dayId: string;
-  employeeId: string;
-};
+import type React from "react"
+import { useState } from "react"
+import "./Bingo3x3.css"
 
-export default function Bingo3x3() {
-  const navigate = useNavigate();
-  const { state } = useLocation() as { state: LocationState };
-  const { dayId, employeeId } = state || { dayId: 'unknown', employeeId: 'unknown' };
+type BingoSquare = {
+  id: string
+  topic: string
+  rating: number | null
+}
 
-  // Mock de rótulos de competências
-  const initialBingo: BingoItem[] = [
-    { key: 'b1', label: 'Comunicação', value: null },
-    { key: 'b2', label: 'Organização', value: null },
-    { key: 'b3', label: 'Colaboração', value: null },
-    { key: 'b4', label: 'Criatividade', value: null },
-    { key: 'b5', label: 'Cumprimento de prazos', value: null },
-    { key: 'b6', label: 'Empatia', value: null },
-    { key: 'b7', label: 'Proatividade', value: null },
-    { key: 'b8', label: 'Aprendizado rápido', value: null },
-    { key: 'b9', label: 'Qualidade de código', value: null },
-  ];
+type Person = {
+  Avaliação: string
+}
 
-  const [bingoItems, setBingoItems] = useState<BingoItem[]>(initialBingo);
+function App() {
+  const [person, setPerson] = useState<Person>({ Avaliação: "" })
+  const [squares, setSquares] = useState<BingoSquare[]>([
+    { id: "1", topic: "Proatividade", rating: null },
+    { id: "2", topic: "Competência", rating: null },
+    { id: "3", topic: "Comunicação", rating: null },
+    { id: "4", topic: "Trabalho em Equipe", rating: null },
+    { id: "5", topic: "Organização", rating: null },
+    { id: "6", topic: "Criatividade", rating: null },
+    { id: "7", topic: "Pontualidade", rating: null },
+    { id: "8", topic: "Resolução de Problemas", rating: null },
+  ])
 
-  // Função que atualiza o valor de um slot (ao receber drop)
-  const handleDropValue = (key: string, val: number) => {
-    setBingoItems((prev) =>
-      prev.map((item) => (item.key === key ? { ...item, value: val } : item))
-    );
-  };
+  const [activeDrag, setActiveDrag] = useState<number | null>(null)
+  const ratings = [1, 2, 3, 4, 5]
 
-  // Checa se todos os itens já possuem valor para habilitar “Enviar”
-  const allFilled = bingoItems.every((item) => item.value != null);
+  // ✅ Verifica se todos os quadrados têm nota
+  const allRated = squares.every((square) => square.rating !== null)
 
-  const handleSubmit = () => {
-    // Exemplo: só loga no console o resultado
-    const result = {
-      dayId,
-      employeeId,
-      ratings: bingoItems.map((i) => ({ key: i.key, value: i.value })),
-    };
-    console.log('Avaliação enviada:', result);
-    navigate('/');
-  };
+  const handleDragStart = (rating: number) => {
+    setActiveDrag(rating)
+  }
+
+  const handleDrop = (squareId: string) => {
+    if (activeDrag !== null) {
+      setSquares(squares.map((square) => (square.id === squareId ? { ...square, rating: activeDrag } : square)))
+      setActiveDrag(null)
+    }
+  }
+
+  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPerson({ ...person, Avaliação: e.target.value })
+  }
+
+  // ✅ Ação do botão
+  const handleFinish = () => {
+    alert(`Avaliação concluída!`)
+  }
 
   return (
-    <div style={{ padding: '16px' }}>
-      <h2>
-        Avaliando Colaborador <i>{employeeId}</i> – Dia <i>{dayId}</i>
-      </h2>
+    <div className="app-container">
 
-      {/* Grid 3x3 }
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(3, 1fr)',
-          gap: '12px',
-          marginTop: '24px',
-        }}
-      >
-        {bingoItems.map((item) => (
-          <DropSlot
-            key={item.key}
-            label={item.label}
-            currentValue={item.value ?? null}
-            onDropValue={(val) => handleDropValue(item.key, val)}
+      <div className="header">
+        <h1>Bingo do Lucas</h1>
+        </div>
+    
+      <div className="bingo-board">
+        {squares.map((square) => (
+          <div
+            key={square.id}
+            className="bingo-square"
+            onDragOver={(e) => e.preventDefault()}
+            onDrop={() => handleDrop(square.id)}
+          >
+            <div className="topic">{square.topic}</div>
+            {square.rating && <div className={`rating-display rating-${square.rating}`}>{square.rating}</div>}
+          </div>
+        ))}
+      </div>
+
+      <div className="rating-circles">
+        {ratings.map((rating) => (
+          <div
+            key={rating}
+            className={`rating-circle rating-${rating}`}
+            draggable
+            onDragStart={() => handleDragStart(rating)}
+          >
+            {rating}
+          </div>
+        ))}
+      </div>
+      
+        <div className="name-input">
+          <label>Feedback livre:</label>
+          <input
+            type="text"
+            id="personName"
+            onChange={handleNameChange}
+            placeholder="Escreva aqui"
           />
-        ))}
-      </div>
-
-      {/* Números arrastáveis (1–5) }
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          marginTop: '32px',
-          flexWrap: 'wrap',
-        }}
-      >
-        {[1, 2, 3, 4, 5].map((n) => (
-          <DragNumber key={n} value={n} />
-        ))}
-      </div>
-
-      {/* Botão de enviar (desabilitado se nem todos preenchidos) }
-      <button
-        onClick={handleSubmit}
-        disabled={!allFilled}
-        style={{
-          marginTop: '32px',
-          padding: '12px 24px',
-          fontSize: '16px',
-          backgroundColor: allFilled ? '#4caf50' : '#9e9e9e',
-          color: '#fff',
-          border: 'none',
-          borderRadius: '6px',
-          cursor: allFilled ? 'pointer' : 'not-allowed',
-        }}
-      >
-        Enviar Avaliação
-      </button>
+        </div>
+      
+        <div className="finish-section">
+          <button className="finish-button" onClick={handleFinish}>
+            Enviar
+          </button>
+        </div>
     </div>
-  );
+  )
 }
-  */
+
+export default App

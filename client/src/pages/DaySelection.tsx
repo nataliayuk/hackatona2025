@@ -1,14 +1,16 @@
 // src/pages/DaySelection.tsx
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import './DaySelection.css'; // vamos criar um CSS leve para posicionar os círculos
-
+import './DaySelection.css';
 const days = [
-  { id: 'day1', label: 'Dia 1' },
-  { id: 'day2', label: 'Dia 2' },
-  { id: 'day3', label: 'Dia 3' },
-  { id: 'day4', label: 'Dia 4' },
-  { id: 'day5', label: 'Dia 5' },
+  { id: 'segunda-feira', label: 'Seg' },
+  { id: 'terça-feira', label: 'Ter' },
+  { id: 'quarta-feira', label: 'Qua' },
+  { id: 'quinta-feira', label: 'Qui' },
+  { id: 'sexta-feira', label: 'Sex' },
+  { id: 'sábado', label: 'Sáb ' },
+  { id: 'domingo', label: 'Dom' },
+
 ];
 
 export default function DaySelection() {
@@ -16,7 +18,7 @@ export default function DaySelection() {
 
   return (
     <div className="day-container">
-      <h1>Selecione o Dia</h1>
+      <h1>Feedback do dia:</h1>
       <div className="day-path">
         {days.map((d, idx) => (
           <React.Fragment key={d.id}>
@@ -26,7 +28,7 @@ export default function DaySelection() {
             >
               {d.label}
             </div>
-            {/* Se não for o último, desenhe uma linha até o próximo */}
+            {}
             {idx < days.length - 1 && <div className="day-line" />}
           </React.Fragment>
         ))}
