@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { fetchEmployees } from '../services/employees';
 import type { Employee } from '../types/Employee';
+import UserLogo from "../assets/user1.svg"; 
+
 type LocationState = {
   dayId: string;
 };
@@ -35,6 +37,15 @@ export default function EmployeeSelection() {
       padding: '24px',
       textAlign: 'center',
     }}>
+      
+        <button
+      className="usuario"
+      onClick={() => navigate('/Profile', { state: { dayId: 'example-id' } })}
+      
+    >
+      <img src={UserLogo} alt="User Logo" style={{ width: '40px', height: '40px' }} />
+    </button>
+      
       <p style={{ paddingTop: '3rem', fontSize: '3rem'}}>🌟</p>
       <h1 style= {{ fontSize: '36px' }}>Feedback do dia</h1>
       <p> 

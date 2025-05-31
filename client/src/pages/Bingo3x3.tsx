@@ -2,6 +2,7 @@ import type React from "react"
 import { useState } from "react"
 import "./Bingo3x3.css"
 import { useNavigate } from "react-router-dom"
+import Back from "../assets/back.svg"
 
 
 type BingoSquare = {
@@ -123,7 +124,7 @@ function App() {
       onClick={() => navigate('/select-employee', { state: { dayId: 'example-id' } })}
       aria-label="Voltar"
     >
-      ←
+      <img src={Back} alt="Voltar" className="back-icon" />
     </button>
     <h1 style= {{ fontSize: '1.8rem' }}>
       Cartela do Thiago

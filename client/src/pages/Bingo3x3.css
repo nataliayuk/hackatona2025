@@ -32,6 +32,18 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
 }
+.usuario{
+    background: none;
+  border: none;
+  font-size: clamp(1.2rem, 4vw, 1.8rem);
+  color: rgba(0, 0, 0, 0.548);
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  top: 10%;
+  transform: translateY(-30%);
+  margin-right: 30px;
+}
 
 .app-container {
   display: flex;
