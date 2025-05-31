@@ -18,7 +18,10 @@ export default function DaySelection() {
 
   return (
     <div className="day-container">
-      <h1>Feedback do dia:</h1>
+      <div className='titleWrapper'>
+        <div className='profile' onClick={() => navigate('/profile')}></div>
+        <h1>Feedback do dia:</h1>
+      </div>
       <div className="day-path">
         {days.map((d, idx) => (
           <React.Fragment key={d.id}>
@@ -34,5 +37,6 @@ export default function DaySelection() {
         ))}
       </div>
     </div>
+    
   );
 }

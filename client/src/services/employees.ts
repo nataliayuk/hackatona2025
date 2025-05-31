@@ -1,24 +1,14 @@
 // src/services/employees.ts
+import axios from 'axios';
 import type { Employee } from '../types/Employee';
 
 // Exemplo de dados mock
-const mockEmployees: Employee[] = [
-  { id: '1', name: 'Ana Silva' },
-  { id: '2', name: 'João Souza' },
-  { id: '3', name: 'Maria Oliveira' },
-  { id: '4', name: 'Carlos Pereira' },
-  { id: '5', name: 'Fernanda Costa' },
-  { id: '6', name: 'Roberto Lima' },
-  { id: '7', name: 'Patrícia Rocha' },
-  { id: '8', name: 'Lucas Almeida' },
-  { id: '9', name: 'Juliana Santos' },
-  { id: '10', name: 'Eduardo Martins' },
-];
-
-export function fetchEmployees(): Promise<Employee[]> {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(mockEmployees);
-    }, 300); 
-  });
+export async function fetchEmployees(): Promise<Employee[]> {
+  try {
+    const response = await axios.get('http://localhost:3000/user'); // Replace with your backend URL
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching employees:', error);
+    return [];
+  }
 }

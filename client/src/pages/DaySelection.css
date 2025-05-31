@@ -6,6 +6,20 @@
   padding: 16px;
 }
 
+.profile{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #818181;
+}
+
+.titleWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+
 .day-path {
   display: flex;
   align-items: center;
