@@ -15,7 +15,7 @@ type BingoSquare = {
 
 function App() {
   const navigate = useNavigate()
-  const [points, setPoints] = useState<number>(0)
+ 
   const [evaluation, setEvaluation] = useState<string>("")
   const [squares, setSquares] = useState<BingoSquare[]>([
     { id: "1", topic: "Comunicação", rating: null },
@@ -109,10 +109,17 @@ function App() {
 
   // Handle submit button
   const handleSubmit = () => {
-    setPoints(points + 1)
-    console.log("Avaliação enviada:", evaluation)
-    console.log("Notas:", squares)
-  }
+  const storedPoints = Number(localStorage.getItem("points")) || 0;
+  const newPoints = storedPoints + 1;
+
+  localStorage.setItem("points", newPoints.toString());
+
+  console.log("Avaliação enviada:", evaluation);
+  console.log("Notas:", squares);
+
+  navigate('/end'); // redireciona APÓS salvar os pontos
+}
+
 
   // Handle square click to remove rating
   const handleSquareClick = (squareId: string) => {
@@ -133,9 +140,9 @@ function App() {
       ←
     </button>
     <h1>
-      <span className="points">
+      
       Cartela do Thiago
-      </span>
+      
     </h1>
   </div>
 </div>
@@ -191,10 +198,11 @@ function App() {
             placeholder="Escreva aqui, sua avaliação é anônima"
           />
         </div>
-        <button className="submit-button" onClick={() => navigate('/end')}>
-          <span className="button-icon">📤</span>
-          Enviar
+        <button className="submit-button" onClick={handleSubmit}>
+        <span className="button-icon">📤</span>
+             Enviar
         </button>
+
       </div>
 
       {/* Floating drag element */}
