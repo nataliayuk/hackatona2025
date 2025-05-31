@@ -11,6 +11,15 @@ body,
   background-color: #fafafa;
 }
 
+:root {
+  --font-Inter: 'Inter', sans-serif;
+  --font-Poppins: 'Poppins', sans-serif;
+  --PRETO: #000000;
+  --BRANCO: #FBFCFE;
+  --VERDE_AGUA: #00b288;
+  --AZUL_ESCURO: #242d3d;
+}
+
 /* Geral para botões, inputs, etc. */
 button,
 input {
