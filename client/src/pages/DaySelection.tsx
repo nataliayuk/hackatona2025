@@ -1,3 +1,5 @@
+// PAGINA 1
+
 // src/pages/DaySelection.tsx
 import React from 'react';
 import { useNavigate } from 'react-router-dom';

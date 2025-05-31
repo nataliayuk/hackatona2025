@@ -1,3 +1,6 @@
+// PAGINA 3
+
+
 // src/pages/Bingo3x3.tsx
 /*import { useLocation, useNavigate } from 'react-router-dom';
 import DropSlot from '../components/DropSlot';
